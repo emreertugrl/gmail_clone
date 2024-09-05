@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gmail Clone</title>
+    <!-- * Tarayıcı İcon -->
+    <link rel="shortcut icon" href="./images/logo-16.png" type="image/x-icon" />
+    <!-- * Toastify Css -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- * Bs İcon Link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- * Css Link -->
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <!-- * Header Alanı  -->
+    <header id="header">
+      <!-- Sol Kısım -->
+      <div class="left">
+        <div class="hamburger-menu">
+          <i class="bi bi-list"></i>
+        </div>
+        <img src="./images/logo-24.png" alt="logo" />
+        <span>Gmail</span>
+      </div>
+      <!-- Orta Kısım  -->
+      <div class="middle">
+        <form>
+          <div class="search">
+            <i class="bi bi-search"></i>
+            <!-- ! inputun type ı search olunca içerisindeki 'X' iconuna tıklayınca inputu resetler. -->
+            <input
+              type="search"
+              id="search-input"
+              placeholder="Postalarda Arayınız ... "
+            />
+          </div>
+          <div class="settings">
+            <i class="bi bi-sliders2"></i>
+          </div>
+        </form>
+      </div>
+      <div id="toggle">
+        <i class="indicator"></i>
+      </div>
+      <!--  Sağ Kısım -->
+      <div class="right">
+        <i class="bi bi-question-circle"></i>
+        <i class="bi bi-gear"></i>
+        <i class="bi bi-grid-3x3-gap-fill"></i>
+        <img src="./images/man.jpg" alt="user-image" />
+      </div>
+    </header>
+    <!-- * Main Alanı -->
+    <section id="sectionArea">
+      <!-- * Sol Kısım -->
+      <nav id="leftNav">
+        <div class="create">
+          <i class="bi bi-pencil-fill"></i>
+          <span>Oluştur</span>
+        </div>
+        <div class="nav-middle">
+          <a href="#" class="active">
+            <i class="bi bi-inbox-fill"></i>
+            <span>Gelen Kutusu</span>
+          </a>
+          <a href="#">
+            <i class="bi bi-star"></i>
+            <span>Yıldızlananlar</span>
+          </a>
+          <a href="#">
+            <i class="bi bi-clock"></i>
+            <span>Ertelenenler</span>
+          </a>
+          <a href="#">
+            <i class="bi bi-send-fill"></i>
+            <span>Gönderilmiş Postalar</span>
+          </a>
+          <a href="#">
+            <i class="bi bi-file-earmark"></i>
+            <span>Taslaklar</span>
+          </a>
+          <a href="#">
+            <i class="bi bi-caret-down-fill"></i>
+            <span>Diğer</span>
+          </a>
+        </div>
+        <div class="nav-bottom">
+          <div>
+            <span>Etiketler</span>
+            <i class="bi bi-plus"></i>
+          </div>
+        </div>
+      </nav>
+      <!-- * Ana İçerik -->
+      <main>
+        <!-- Yukarı Kısım -->
+        <div class="top">
+          <div class="left">
+            <div class="checkbox">
+              <input type="checkbox" />
+              <span><i class="bi bi-caret-down"></i></span>
+            </div>
+            <i class="bi bi-arrow-clockwise"></i>
+            <i class="bi bi-three-dots-vertical"></i>
+          </div>
+          <div class="right">
+            <p>3 satırdan 1-3 arası</p>
+            <i class="bi bi-caret-left passive"></i>
+            <i class="bi bi-caret-right-fill"></i>
+            <div class="keyboard">
+              <i class="bi bi-keyboard"></i>
+              <i class="bi bi-caret-down-fill"></i>
+            </div>
+          </div>
+        </div>
+        <!--  Mail Alanı -->
+        <div class="mails-area">
+          <div class="mail" id="mail">
+            <div class="left">
+              <input type="checkbox" />
+              <i class="bi bi-star"></i>
+              <span>Udemig</span>
+            </div>
+            <div class="right">
+              <p class="message-title">Kurs Kayıt</p>
+              <p class="message-description">Kursa hoşgeldiniz !</p>
+              <p class="message-date">16 Ağustos</p>
+              <div class="delete">
+                <i class="bi bi-trash"></i>
+              </div>
+            </div>
+          </div>
+          <div class="mail" id="mail">
+            <div class="left">
+              <input type="checkbox" />
+              <i class="bi bi-star"></i>
+              <span>Udemig</span>
+            </div>
+            <div class="right">
+              <p class="message-title">Kurs Kayıt</p>
+              <p class="message-description">Kursa hoşgeldiniz !</p>
+              <p class="message-date">16 Ağustos</p>
+              <div class="delete">
+                <i class="bi bi-trash"></i>
+              </div>
+            </div>
+          </div>
+          <div class="mail" id="mail">
+            <div class="left">
+              <input type="checkbox" />
+              <i class="bi bi-star"></i>
+              <span>Udemig</span>
+            </div>
+            <div class="right">
+              <p class="message-title">Kurs Kayıt</p>
+              <p class="message-description">Kursa hoşgeldiniz !</p>
+              <p class="message-date">16 Ağustos</p>
+              <div class="delete">
+                <i class="bi bi-trash"></i>
+              </div>
+            </div>
+          </div>
+          <div class="mail" id="mail">
+            <div class="left">
+              <input type="checkbox" />
+              <i class="bi bi-star"></i>
+              <span>Udemig</span>
+            </div>
+            <div class="right">
+              <p class="message-title">Kurs Kayıt</p>
+              <p class="message-description">Kursa hoşgeldiniz !</p>
+              <p class="message-date">16 Ağustos</p>
+              <div class="delete">
+                <i class="bi bi-trash"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- * Sağ Kısım -->
+      <aside id="asideNav">
+        <img class="icon" src="./images/calendar-48.png" />
+        <img class="icon" src="./images/keep-48.png" />
+        <img class="icon" src="./images/task-48.png" />
+        <img class="icon" src="./images/account-48.png" />
+        <span></span>
+        <i class="bi bi-plus icon"></i>
+      </aside>
+    </section>
+    <!-- * Modal Kısımı -->
+    <div class="modal-wrapper">
+      <div class="modal-inner">
+        <i class="bi bi-x-lg" id="close-btn"></i>
+        <form id="create-mail-form">
+          <label for="who">Kime</label>
+          <input type="text" id="who" />
+          <label for="subject">Konu</label>
+          <input type="text" id="subject" />
+          <label>İçerik</label>
+          <textarea></textarea>
+          <button id="send-mail-btn">Gönder</button>
+        </form>
+      </div>
+    </div>
+    <!-- * Js Bağlantı -->
+    <script src="./js/main.js" type="module"></script>
+    <!-- * Toastify Js -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>

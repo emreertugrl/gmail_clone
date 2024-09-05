@@ -1,0 +1,33 @@
+//! Colors
+$main-background: #f6f8fc;
+$hover-effect: #eaebef;
+$search-input: #eaf1fb;
+$search-input-click: #ffffff;
+$nav-background: #f6f8fc;
+$create-color: #c2e7ff;
+$left-clik: #d3e3fd;
+$mails-background: #ffffff;
+$box-color: #f2f6fc;
+$active-color: #d3e3fd;
+//! Fonts Size
+$icon-size: 24px;
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  box-sizing: content-box;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.5s;
+  &:hover {
+    background-color: $hover-effect;
+  }
+}

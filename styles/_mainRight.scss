@@ -1,0 +1,14 @@
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 5px;
+  img {
+    width: 28px;
+    height: 28px;
+  }
+  span {
+    background-color: gray;
+    height: 2px;
+  }
+}
