@@ -84,6 +84,26 @@ nav .nav-bottom div {
   align-items: center;
 }
 
+.flex, header .right, header .middle form .search, header .middle form, header .left, header, main .mail .right, main .mail .left, main .top .right, main .top .left .checkbox input, main .top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon, header .right i, header .middle form .settings i, header .middle form .search i, header .left .hamburger-menu i, main .mail .left i, main .top .right i, main .top .left i {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  box-sizing: content-box;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+.icon:hover, header .right i:hover, header .middle form .settings i:hover, header .middle form .search i:hover, header .left .hamburger-menu i:hover, main .mail .left i:hover, main .top .right i:hover, main .top .left i:hover {
+  background-color: #eaebef;
+}
+
 main {
   background-color: #ffffff;
   border-radius: 8px;
@@ -176,6 +196,7 @@ main .mail .right .message-title {
 main .mail .right .message-description {
   margin-left: 14px;
   width: 100%;
+  white-space: nowrap;
 }
 main .mail .right .message-date {
   white-space: nowrap;
@@ -398,4 +419,8 @@ header .right img {
 
 .darkMode {
   background-color: #8dbbc9;
+}
+
+.bi-star-fill {
+  color: gold;
 }/*# sourceMappingURL=style.css.map */
