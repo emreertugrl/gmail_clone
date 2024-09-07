@@ -38,3 +38,22 @@ function trimString(str, max) {
   if (str.length < max) return str;
   return str.slice(0, max) + "...";
 }
+// kategorileri dinamik olarak render etmek
+export function renderCategories(outlet, data, selectCategory) {
+  // eski kategorileri sil
+  outlet.innerHTML = "";
+  // yeni kategorileri render et
+  data.forEach((category) => {
+    const categoryItem = document.createElement("a");
+    // kategori elemanınına veri ekleme
+    categoryItem.dataset.name = category.title;
+    // aktif olan kateforiye active ekleme
+    categoryItem.className = selectCategory === category.title && "active";
+
+    categoryItem.innerHTML = `
+    <i class="${category.class}"></i>
+    <span>${category.title}</span>
+    `;
+    outlet.appendChild(categoryItem);
+  });
+}

@@ -1,5 +1,5 @@
-import { months } from "./constants.js";
-import { renderMails, showModal } from "./ui.js";
+import { categories, months } from "./constants.js";
+import { renderCategories, renderMails, showModal } from "./ui.js";
 // ! HTML'den Elemanların Çekilmesi
 const body = document.querySelector("body");
 const btn = document.getElementById("toggle");
@@ -13,7 +13,6 @@ const mailsArea = document.querySelector(".mails-area");
 const searchButton = document.querySelector("#search-icon");
 const searchInput = document.querySelector("#search-input");
 const categoryArea = document.querySelector(".nav-middle");
-
 // localstorage verileri al
 const strMailData = localStorage.getItem("data");
 
@@ -24,7 +23,10 @@ const mailData = JSON.parse(strMailData) || [];
 document.addEventListener("DOMContentLoaded", () =>
   renderMails(mailsArea, mailData)
 );
-// !mail alanını güncelle
+//! search iconuna tıklanmasını izleme
+searchButton.addEventListener("click", searchMails);
+
+//! mail alanını güncelle
 mailsArea.addEventListener("click", updateMail);
 
 //! Hamburger menuye tıklanınca nav kısmını gizle ve aç
@@ -56,6 +58,8 @@ window.addEventListener("resize", (e) => {
     navigation.classList.remove("hide");
   }
 });
+//! categori olay izleyici
+categoryArea.addEventListener("click", watchCategory);
 
 //! toggle yapısı sayesinde dark/light mode eklendi
 btn.addEventListener("click", () => {
@@ -122,7 +126,7 @@ function sendMail(e) {
   }).showToast();
 }
 
-// mailleri güncelleme
+//! mailleri güncelleme
 function updateMail(e) {
   if (e.target.classList.contains("bi-trash")) {
     const mail = e.target.parentElement.parentElement.parentElement;
@@ -132,14 +136,6 @@ function updateMail(e) {
     const filtredData = mailData.filter((i) => i.id != mailId);
     // diziyi localStorage göndermek için veriyi string çevir
     const strData = JSON.stringify(filtredData);
-    // localstoragedan veriyi kaldır
-    localStorage.removeItem("data");
-    // localstoragea yeni veriyi kaydet
-    localStorage.setItem("data", strData);
-
-    // ekranı güncelleme
-    // renderMails(mailsArea, filtredData);
-    mail.remove();
     Toastify({
       text: "Mail Silindi",
       duration: 3000,
@@ -154,6 +150,14 @@ function updateMail(e) {
       },
       onClick: function () {}, // Callback after click
     }).showToast();
+    // localstoragedan veriyi kaldır
+    localStorage.removeItem("data");
+    // localstoragea yeni veriyi kaydet
+    localStorage.setItem("data", strData);
+
+    // ekranı güncelleme
+    renderMails(mailsArea, filtredData);
+    mail.remove();
   }
   if (e.target.classList.contains("bi-star")) {
     // güncellenecek veriyi belirle
@@ -185,4 +189,26 @@ function updateMail(e) {
     localStorage.setItem("data", JSON.stringify(mailData));
     renderMails(mailsArea, mailData);
   }
+}
+//! kategori kısmına tıklanınca çalışacak fonksiyon
+function watchCategory(e) {
+  const leftNav = e.target.parentElement;
+  const selectedCategory = leftNav.dataset.name;
+  renderCategories(categoryArea, categories, selectedCategory);
+
+  if (selectedCategory === "Yıldızlananlar") {
+    const filtred = mailData.filter((i) => i.stared === true);
+    renderMails(mailsArea, filtred);
+    return;
+  }
+  renderMails(mailsArea, mailData);
+}
+//! Arama fonksiyonu
+function searchMails() {
+  // arama içeriğini içeren mailleri alma
+  const filtredArray = mailData.filter((i) =>
+    i.message.toLowerCase().includes(searchInput.value.toLowerCase())
+  );
+  // filtrelenen veriyi mailleri ekrana bas
+  renderMails(mailsArea, filtredArray);
 }
