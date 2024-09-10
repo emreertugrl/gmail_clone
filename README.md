@@ -6,7 +6,7 @@ The Gmail Clone App allows users to manage their emails with features like sendi
 
 ## Features
 
-- 📧 Send and receive emails
+- 📧 Send emails
 - 🌟 Star and unstar emails
 - 🗑️ Delete emails
 - 🔍 Search emails by content
@@ -44,7 +44,7 @@ To develop the project, follow these steps:
 
 ## Live Demo
 
-<a href="h">Netlify Project View</a>
+<a href="https://gmailcloneappp.netlify.app/">Netlify Project View</a>
 
 ## Contact
 
