@@ -14,11 +14,10 @@ const searchButton = document.querySelector("#search-icon");
 const searchInput = document.querySelector("#search-input");
 const categoryArea = document.querySelector(".nav-middle");
 // localstorage verileri al
-const strMailData = localStorage.getItem("data");
+const strMailData = localStorage.getItem("data") || "[]";
 
 //! Mail Data
-const mailData = JSON.parse(strMailData) || [];
-
+const mailData = JSON.parse(strMailData);
 //! sayfa yüklendiğinde ekrana bas
 document.addEventListener("DOMContentLoaded", () =>
   renderMails(mailsArea, mailData)
@@ -74,7 +73,7 @@ function sendMail(e) {
   const title = e.target[1].value;
   const message = e.target[2].value;
   //
-  if (!receiver || !title || !message) {
+  if (!receiver.trim() || !title.trim() || !message.trim()) {
     return Toastify({
       text: "Formu Doludurunuz!! ",
       duration: 3000,
@@ -135,7 +134,16 @@ function updateMail(e) {
     // id bildiğimiz elemanı diziden çıkarma
     const filtredData = mailData.filter((i) => i.id != mailId);
     // diziyi localStorage göndermek için veriyi string çevir
-    const strData = JSON.stringify(filtredData);
+    // const strData = JSON.stringify(filtredData);
+
+    // localstoragea yeni veriyi kaydet
+    localStorage.setItem("data", JSON.stringify(filtredData));
+
+    // mailData'yı da güncellemek önemli olabilir
+    mailData.length = 0; // mailData dizisini boşalt
+    mailData.push(...filtredData); // mailData dizisini güncellenen verilerle doldur
+    renderMails(mailsArea, filtredData);
+
     Toastify({
       text: "Mail Silindi",
       duration: 3000,
@@ -150,14 +158,6 @@ function updateMail(e) {
       },
       onClick: function () {}, // Callback after click
     }).showToast();
-    // localstoragedan veriyi kaldır
-    localStorage.removeItem("data");
-    // localstoragea yeni veriyi kaydet
-    localStorage.setItem("data", strData);
-
-    // ekranı güncelleme
-    renderMails(mailsArea, filtredData);
-    mail.remove();
   }
   if (e.target.classList.contains("bi-star")) {
     // güncellenecek veriyi belirle
