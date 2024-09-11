@@ -27,13 +27,16 @@ The Gmail Clone App allows users to manage their emails with features like sendi
 To develop the project, follow these steps:
 
 1. Clone the repository:
+
    ```bash
-   git clone https://github.com/emreertugrl/Email-Web-Application.git
+   https://github.com/emreertugrl/gmail_clone.git
+
    ```
+
 2. Navigate to the project directory:
 
    ```bash
-   cd email-web-application
+   cd gmail_clone
    ```
 
 3. Open index.html in your browser to see the application in action.
